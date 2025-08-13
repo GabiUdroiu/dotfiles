@@ -1,0 +1,204 @@
+* {
+  font-family: "JetBrainsMonoNerdFontMono-ExtraBoldItalic.ttf ";
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  padding: 1px;
+  margin-left: 2px;
+  margin-right: 2px;
+  background: transparent;
+}
+
+#custom-gear {
+  opacity: 1;
+}
+#custom-wifi {
+  font-size: 18px;
+}
+
+#custom_volume {
+  font-size: 30px;
+}
+
+#battery {
+  border-radius: 50%;
+}
+
+#workspaces {
+  margin-left: -10px;
+  margin-right: -5px;
+}
+
+#custom-power_btn {
+  margin-top: 1px;
+  margin-right: 0;
+  color: #1793d1;
+  font-size: 18px;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+tooltip {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+tooltip label{
+   color: #cdd6f4;
+}
+/*
+#workspaces button {
+    padding: 1px;
+    color: #cdd6f4;
+    margin-right: 5px;
+}
+
+#window {
+    font-size: 8px;
+}
+
+#clock,
+#battery,
+#network,
+#tray,
+#clock,
+#workspaces{
+   margin: 4px;
+   opacity: 0.9;
+}
+#clock {
+    padding-right: 8px;
+}
+
+#custom-updates,
+#memory,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile {
+    padding: 0px 6px;
+    margin: 1px;
+    border-radius: 15px;
+    opacity: 1;
+}
+
+ #battery.critical {
+  border-bottom: 1px solid rgba(255,85,85,0.5);
+}
+
+#battery.warning {
+  border-bottom: 1px solid rgba(255,170,0,0.5);
+
+}
+
+#battery.good {
+  border-bottom: 1px solid rgba(170,255,0,0.5);
+
+}
+
+
+#custom-power_btn {
+	margin-top: 2px;
+}
+
+
+
+window#waybar {
+  border-bottom: 1px dotted rgba(255,255,255,0.1);
+} */
+
+/* 
+{
+    font-family: "JetBrainsMonoNerdFontMono-ExtraBoldItalic.ttf ";
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    padding-top: 0px;
+}
+
+window#waybar {
+    border-radius: 0px;
+    background: transparent;
+    color: #ffffff;
+}
+
+tooltip {
+    background: transparent;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+tooltip label{
+   color: #cdd6f4;
+}
+
+#workspaces button {
+    padding: 1px;
+    color: #cdd6f4;
+    margin-right: 5px;
+}
+
+#window {
+    font-size: 8px;
+}
+
+#clock,
+#battery,
+#network,
+#tray,
+#clock,
+#workspaces{
+   margin: 4px;
+   opacity: 0.9;
+}
+#clock {
+    padding-right: 8px;
+}
+
+#custom-updates,
+#memory,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile {
+    padding: 0px 6px;
+    margin: 1px;
+    border-radius: 15px;
+    opacity: 1;
+
+}
+
+#battery.critical {
+  border-bottom: 1px solid rgba(255,85,85,0.5);
+}
+
+#battery.warning {
+  border-bottom: 1px solid rgba(255,170,0,0.5);
+
+}
+
+#battery.good {
+  border-bottom: 1px solid rgba(170,255,0,0.5);
+
+}
+
+#battery.charging {
+  color: #66ccff;  albastru deschis
+}
+
+#custom-power_btn {
+	margin-top: 2px;
+}
+
+#custom-gear {
+	margin-top: 2px;
+}
+
+window#waybar {
+  border-bottom: 1px dotted rgba(255,255,255,0.1);
+} */

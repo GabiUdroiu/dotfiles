@@ -1,0 +1,109 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "mod": "overlay",
+  "exclusive": true,
+  "passthrough": false,
+  "height": 10,
+  "spacing": 12,
+
+  "modules-left": [
+    "custom/power_btn",
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "wlr/taskbar"
+  ],
+
+  "modules-center": [
+    "hyprland/window"
+  ],
+
+  "modules-right": [
+    "tray",
+    "battery",
+    "clock",
+    "custom/gear"
+  ],
+  "custom/power_btn": {
+    "format": "  ",
+    "on-click": "systemctl poweroff",
+    "tooltip": false
+  },
+
+  "custom/gear": {
+    "format": "󰍜 ",
+    "on-click": "/home/gabi/rofi/files/applets/bin/gabi.sh",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "[{name}]",
+    "on-click": "activate",
+    "all-outputs": false,
+    "persistent-workspaces": false,
+    "active-only": true,
+    "markup": true
+  },
+
+"hyprland/window": {
+  "format": "{initialClass}"
+},
+
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 16,
+    "all-outputs": true,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "Rofi"
+    ]
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 15
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "{:%a, %d %b %H:%M}",
+    "tooltip": false
+  },
+
+  "battery": {
+    "bat": "BAT1",
+    "interval": 60,
+    "icon-size": 30,
+    "max-length": 25,
+    "tooltip": true,
+    "markup": true,
+
+    "states": {
+      "critical": 19,
+      "warning": 49,
+      "good": 99
+    },
+
+    "format": "<span foreground='#26e400'>{icon}</span>",
+    "tooltip-format": "{capacity}%",
+    "format-charging": "{capacity}%<span foreground='#f3ef19'>󰂄</span>",
+    "format-alt": "{time} ",
+    "format-warning": "<span foreground='#ff9c55'>{icon}</span>",
+    "format-critical": "<span foreground='#FF5555'>{icon} </span> {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  }
+}
