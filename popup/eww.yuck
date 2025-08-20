@@ -1,0 +1,102 @@
+;; Popup-ul cu setări
+
+(defvar reveal_topbar false)
+
+(
+  defwindow testold []
+  :monitor 0
+  :geometry 
+  (
+    geometry 
+    :anchor "top right"
+  )
+  :visible false
+    (revealer :transition "slideup" :reveal {reveal_topbar} :duration 50
+      (topbar)
+    )
+)
+
+(
+  defwidget topbar []
+  (
+    box 
+    :class "test" 
+    :orientation "v" 
+    :hexpand false :vexpand false
+    :spacing 10
+    :transition "slideright"
+    (powermenu)
+    (audio :volume test)
+    
+  )
+)
+
+(
+  defwidget audio [volume]
+  (
+    box 
+    :class "audio-box" 
+    :orientation "v" 
+    :halign "center" :valign "center" 
+    :vexpand "false" :hexpand "false"
+    :spacing 5 :space-evenly "false" 
+    (
+      box 
+      :class "volume_bar" 
+      :orientation "h" 
+      :vexpand "false" :hexpand "false"
+      :spacing 20 :space-evenly "false" 
+        (
+          button 
+          :class "vol_icon" 
+          "󰕾"
+        )
+        (
+          scale 
+          :orientation "h" 
+          :min 0 :max 101 :value {volume} 
+          :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+        )
+        (
+          label 
+          :class "vol_number"
+          :text "${test}%" 
+        )
+    )
+    (
+      box 
+      :class "volume_bar" 
+      :orientation "h" 
+      :vexpand "false" :hexpand "false"
+      :spacing 20 :space-evenly "false" 
+      (
+        button 
+        :class "vol_icon" 
+        "󰃟"
+      )
+      (
+        scale 
+        :orientation "h" 
+        :min 0 :max 101 :value {volume} 
+        :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+      )
+      (
+        label 
+        :class "vol_number" 
+        :text "${test}%" 
+      )
+    )
+  )
+)
+
+(defwidget powermenu []
+  (
+    box 
+      :class "audio-box" 
+      :orientation "v" 
+      :halign "center" 
+      :space-evenly "false" 
+      "salut"
+  )
+)
+

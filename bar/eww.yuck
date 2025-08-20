@@ -1,0 +1,55 @@
+;; Window showing the time bar
+(defwindow bar
+  :monitor 0
+  :geometry ( geometry
+    :width "100%"
+  :anchor "top center")
+  :exclusive true
+  (bar))
+
+(defwidget bar []
+  (box
+    :class "bar-w"
+    :orientation "horizontal"
+    (logo-widget)
+    (box
+      :orientation "horizontal"
+      :halign "end"
+      (time-widget :time time)
+      (more-widget))))
+
+;; Widget to display the time
+(defwidget time-widget [time]
+  (box
+    :class "time-w"
+    :halign "end"
+  time))
+
+(defwidget logo-widget []
+  (button
+    :class "logo-w"
+    :halign "start"
+  ""))
+
+(defwidget test []
+  (button
+    :class "more-w"
+    :halign "end"
+    :onclick "/home/gabi/.config/rofi/applets/bin/gabi.sh"
+  ""))
+
+(defwidget more-widget []
+  (button
+    :class "more-w"
+    :halign "end"
+    :onclick "/home/gabi/.config/eww/bar/scripts/test.sh"
+  ""))
+
+
+;; Poll the current time every 10 seconds
+(defpoll time :interval "10s"
+"date '+%a, %d %b %H:%M'")
+
+;;(defpoll battery :interval "30s"
+;;  "cat /sys/class/power_supply/BAT1/capacity 2>/dev/null || echo 'N/A'")
+

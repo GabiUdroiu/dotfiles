@@ -1,0 +1,88 @@
+
+.test {
+    background-color: #191919;
+    border-radius: 14px;
+    padding: 10px;
+      border: 0px solid;
+  border-color: rgba(0,0,0,0);
+  margin: 0;
+  padding: 8px;
+}
+
+.dashboard-header {
+    background-color: rgb(255, 255, 255);
+}
+.xd {
+    min-width: 260px;
+    margin-bottom: 5px;
+    background-color: rgb(39, 39, 39);
+    padding: 8px;
+    border-radius: 14px;
+}
+.volume_bar scale trough highlight {
+	all: unset;
+    background-color: #686868;
+	border-radius: 24px;
+}
+
+.layout {
+  background: rgba(0,0,0,0);
+  margin: 1px;
+  padding: 1px;
+  border: 1px solid rgba(0,0,0,0);
+}
+
+scale trough {
+	all: unset;
+	background-color: #191919;
+	border-radius: 24px;
+	min-height: 20px;
+	min-width: 230px;
+}
+
+.vol_icon {
+    // background-color: #444444;
+    // min-width: 33px;
+    // min-height: 33px;
+    // border-radius: 50;
+    font-size: 20px;
+    padding: 2px;
+}
+.vol_number {
+    padding: 0px;
+    margin: 0px;
+    margin-left: -260px;
+}
+
+.audio-box {
+}
+
+///
+/// 
+
+.char {
+    min-width: 90px;
+    min-height: 90px;
+    border-radius: 50%;
+    border: 1px solid #686868;
+}
+
+.inside {
+    padding: 5px;
+}
+
+.close {
+    background-color: blue;
+}
+
+.info {
+    margin-left: 0px;
+}
+
+.info:nth-child(even) {
+    margin-top: 22px;
+}
+
+.oxo {
+    margin-top: -30px;
+}

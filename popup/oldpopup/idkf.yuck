@@ -1,0 +1,49 @@
+;; Popup-ul cu setări
+(
+  defwindow testold[]
+    :monitor 0
+    :geometry (geometry :width "200" :height "30" :x "5" :y "5" :anchor "top right")
+    :visible false
+    (topbar)
+)
+
+
+(
+  defwidget topbar []
+  (
+    box 
+      :class "test" 
+      :orientation "v" 
+      :hexpand false 
+      :vexpand false 
+      :spacing 50
+      :sapce-evenly
+    (powermenu)
+    (audio :volume test)
+
+  )
+)
+
+(defpoll test :interval "1s" `echo $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}')`)
+
+(defwidget audio [volume]
+    (box :class "audio-box" :orientation "v" :spacing 5 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+      (box :class "volume_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (button :class "vol_icon" "󰕾")
+        (scale :flipped "false" :orientation "h" :min 0 :max 101 :value {volume} :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
+        (label :text "${test}%" :class "vol_number")
+      )
+      (box :class "volume_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (button :class "vol_icon" "󰃟")
+        (scale :flipped "false" :orientation "h" :min 0 :max 101 :value {volume} :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
+        (label :text "${test}%" :class "vol_number")
+      )
+    )
+)
+
+(defwidget powermenu []
+    (box :class "audio-box" :orientation "v" :halign "center" :space-evenly "false" "salut"
+    )
+)
+
+

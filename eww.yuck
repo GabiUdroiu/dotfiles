@@ -1,0 +1,3 @@
+(include "./bar/eww.yuck")
+(include "./popup/eww.yuck")
+(include "./variables/variables.yuck")

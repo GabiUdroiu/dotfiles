@@ -1,0 +1,37 @@
+#!/bin/bash
+
+REPO="raexera/tokyo"
+BRANCH="main"
+FOLDER="config/eww/bar"
+
+# Funcție pentru descărcare recursivă
+download_folder() {
+    local folder_path="$1"
+    local local_path="$2"
+
+    mkdir -p "$local_path"
+
+    # Obține lista fișierelor și folderelor
+    curl -s "https://api.github.com/repos/$REPO/contents/$folder_path?ref=$BRANCH" \
+    | grep -E '"type":|"download_url":|"name":' | \
+    awk -v RS="}," '
+    /"type": "file"/ {type="file"}
+    /"type": "dir"/ {type="dir"}
+    /"download_url":/ {url=$0; gsub(/.*"|"$/,"",url)}
+    /"name":/ {name=$0; gsub(/.*"|"$/,"",name)}
+    END {if(type=="file") print url " " name; else if(type=="dir") print "DIR " name}
+    ' | while read line; do
+        if [[ $line == DIR* ]]; then
+            subfolder="${line#DIR }"
+            download_folder "$folder_path/$subfolder" "$local_path/$subfolder"
+        else
+            url=$(echo "$line" | awk '{print $1}')
+            file=$(echo "$line" | awk '{print $2}')
+            echo "Descarc $file..."
+            curl -s -L "$url" -o "$local_path/$file"
+        fi
+    done
+}
+
+# Rulează descărcarea
+download_folder "$FOLDER" "tokyo_bar"

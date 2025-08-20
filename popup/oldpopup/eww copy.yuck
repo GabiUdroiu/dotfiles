@@ -1,0 +1,107 @@
+;; Popup-ul cu setări
+(
+  defwindow testold[]
+    :monitor 0
+    :geometry (geometry :width "200" :height "30" :x "5" :y "5" :anchor "top right")
+    :visible false
+    (topbar)
+)
+
+
+(
+  defwidget topbar []
+  (
+    box :class "test" :orientation "v" :hexpand false :vexpand false :spacing 0
+    ; (
+    ;   box :class "inside" :orientation "h" :spacing 0
+    ;   (box :class "char" :halign "start" :valign "start")
+    ;   (
+    ;     box :class "info" :halign "start" :valign "start" :orientation "v"
+    ;     (box :class "gtext1" "gabi" (box :class "gtext2" "@arch"))
+    ;     (button :class "oxo" :halign "start" " 1h, 20m")
+    ;   )
+    ; )
+    ; (
+      ;   box :orientation "h" :vexpand false :hexpand false
+      ;   (button :halign "start" " 1h, 20m")
+      ;   (button :halign "end" "")
+      
+    ; )
+    (powermenu)
+    (audio :volume test)
+
+  )
+)
+
+(
+  defwidget osd []
+  (box :orientation "h" :valign "center" :class "close"
+    (button :class "close" :vexpand false :hexpand false :halign "center" :onclick "/home/gabi/.config/eww/bar/scripts/test.sh" "close")
+  )
+)
+
+
+(
+  defwidget powermenuo []
+  (
+    box :orientation "h" :valign "center" :space-evenly true :spacing 20
+    (button :class "shutdown" :onclick "$(systemctl poweroff)" "⏻ ")
+    (button :class "reboot" :onclick "$(systemctl reboot)" "")
+    (button :class "lock" :onclick "" " ")
+  )
+)
+
+(defpoll test :interval "1s" `echo $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}')`)
+
+(defwidget audio [volume]
+    (box :class "audio-box" :orientation "v" :spacing 5 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+      (box :class "volume_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (button :class "vol_icon" "󰕾")
+        (scale :flipped "false" :orientation "h" :min 0 :max 101 :value {volume} :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
+        (label :text "${test}%" :class "vol_number")
+      )
+      (box :class "volume_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (button :class "vol_icon" "󰃟")
+        (scale :flipped "false" :orientation "h" :min 0 :max 101 :value {volume} :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
+        (label :text "${test}%" :class "vol_number")
+      )
+    )
+)
+
+(defwidget powermenuyy []
+    (box :class "audio-box" :orientation "v" :halign "center" :space-evenly "false"
+      (box :class "volume_bar" :orientation "h"
+    (button :class "shutdown" :onclick "$(systemctl poweroff)" "⏻ ")
+    (button :class "reboot" :onclick "$(systemctl reboot)" "")
+    (button :class "lock" :onclick "" " ")
+      )
+    )
+)
+
+(defwidget powermenu []
+    (box :class "audio-box" :orientation "v" :halign "center" :space-evenly "false" "salut"
+    )
+)
+
+
+
+
+(
+  defwidget test_menu []
+    (
+      eventbox
+      :onhoverlost "/home/gabi/.config/eww/bar/scripts/test.sh"
+          (box
+    	    :class "box-p"
+	    :orientation "vertical"
+	    :spacing 8
+	    (button :onclick "/home/gabi/.config/hypr/random_wallpaper.sh" 
+	    "Change Wallpaper")
+	    (button :onclick "echo 'Option 2 clicked'" 
+	    "Option 2")
+	    (button :onclick "/home/gabi/.config/eww/bar/scripts/test.sh" 
+	    "Close")
+      )
+    )
+)
+

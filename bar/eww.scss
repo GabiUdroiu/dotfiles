@@ -1,0 +1,36 @@
+
+//Global Styles
+.bar-w {
+  background-color: rgba(25,25,25,0.75);
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.logo-w {
+	margin-left: 14px;
+	font-size: 19px
+}
+
+.logo-w label {
+  color: #6ab7dd;
+}
+
+.logo-w:hover > label {
+  color: rgba(106, 183, 221,0.76);   
+}
+
+.more-w {
+  margin-right: 12px;
+}
+
+.more-w:hover > label {
+  color: rgba(255, 255, 255, 0.76);    
+}
+
+.time-w {
+	margin-right: -49px;
+	font-size: 13px;
+}
