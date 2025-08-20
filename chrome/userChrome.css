@@ -1,0 +1,254 @@
+/*---+---+---+---+---+---+
+ | G | L | O | B | A | L |
+ +---+---+---+---+---+---*/
+
+:root {
+  /* Border radius for all UI elements */
+  --uc-border-radius: 4px;
+
+  /* Statuspanel offset from window edge (0 = corner) */
+  --uc-status-panel-spacing: 12px;
+}
+
+/* Hide window/titlebar buttons */
+.titlebar-buttonbox-container,
+#pageActionButton {
+  display: none !important;
+}
+
+/* Compact hamburger menu */
+#PanelUI-menu-button {
+  padding: 0px !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-icon {
+  width: 1px !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+  padding: 0px !important;
+}
+
+/*---+---+---+---+---+---+---+
+ | T | O | O | L | B | A | R |
+ +---+---+---+---+---+---+---*/
+
+/* Personal toolbar position: 0 = top, 4 = bottom */
+:root {
+  --uc-toolbar-position: 4;
+}
+
+/* Darken personal toolbar (0 = none, 1 = black) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --uc-darken-toolbar: 0.2;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --uc-darken-toolbar: 0;
+  }
+}
+
+/*---+---+---+---+---+---+---+
+ | U | R | L | B | A | R |
+ +---+---+---+---+---+---+---*/
+
+:root {
+  /* Oneline layout width (min always, max on focus) */
+  --uc-urlbar-min-width: 0vw;
+  --uc-urlbar-max-width: 30vw;
+
+  /* URL bar position: 1 = tabs right, 3 = tabs left */
+  --uc-urlbar-position: 3;
+
+  /* Adjust vertical spacing */
+  --uc-urlbar-top-spacing: 1px;
+}
+
+/* Hide nav buttons & UI elements */
+#back-button,
+#forward-button,
+#tracking-protection-icon-container,
+#identity-permission-box,
+#identity-box.extensionPage,
+#urlbar-go-button {
+  display: none !important;
+}
+
+/* Optional hides — uncomment if needed */
+/* #identity-box { display: none !important } */
+/* #page-action-buttons > :not(#urlbar-zoom-button) { display: none !important; } */
+/* #unified-extensions-button { display: none !important; } */
+
+/*---+---+---+---+
+ | T | A | B | S |
+ +---+---+---+---*/
+
+:root {
+  /* Tab width settings */
+  --uc-active-tab-width: clamp(100px, 30vw, 300px);
+  --uc-inactive-tab-width: clamp(100px, 20vw, 200px);
+
+  /* Tab close buttons */
+  --show-tab-close-button: none;
+  --show-tab-close-button-hover: none;
+
+  /* All Tabs button visibility */
+  --uc-show-all-tabs-button: none;
+
+  /* Container indicator styling */
+  --container-tabs-indicator-margin: 10px;
+  --uc-identity-glow: 0 1px 10px 1px;
+}
+
+/* Hide secondary tab label (e.g. "Playing") */
+.tab-secondary-label {
+  display: none !important;
+}
+
+/* Apply global border radius */
+:root {
+  --toolbarbutton-border-radius: var(--uc-border-radius) !important;
+  --tab-border-radius: var(--uc-border-radius) !important;
+  --arrowpanel-border-radius: var(--uc-border-radius) !important;
+  --urlbar-box-text-color: var(--uc-muted-colour) !important;
+}
+
+/* Auto-hide menubar fix */
+#toolbar-menubar[autohide="true"][inactive]:not([customizing]) {
+  width: 0px;
+}
+
+/* Remove box shadows and borders */
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+#PersonalToolbar {
+  padding: 6px !important;
+  box-shadow: inset 0 0 50vh rgba(0, 0, 0, var(--uc-darken-toolbar)) !important;
+  order: var(--uc-toolbar-position);
+  width: 100%;
+}
+
+/* Hide tab left/right padding */
+.titlebar-spacer {
+  display: none !important;
+}
+
+/* Tracking protection icon alignment */
+#urlbar-input-container[pageproxystate="valid"]>#tracking-protection-icon-container>#tracking-protection-icon-box>#tracking-protection-icon {
+  padding-bottom: 1px;
+}
+
+/* Toolbar orders */
+#TabsToolbar {
+  order: 2;
+}
+
+#nav-bar {
+  order: 3;
+}
+
+/* Status panel styling */
+#statuspanel #statuspanel-label {
+  border: none !important;
+  border-radius: var(--uc-border-radius) !important;
+}
+
+/* Toolbar background for light theme */
+#navigator-toolbox:not(:-moz-lwtheme) {
+  background: var(--toolbar-field-background-color) !important;
+}
+
+/* Clean nav-bar */
+#nav-bar {
+  padding-block-start: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Remove outline/shadow on URL bar */
+#urlbar,
+#urlbar * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#urlbar-background {
+  border: transparent !important;
+}
+
+/* URL row hover/focus */
+.urlbarView-row:hover>.urlbarView-row-inner,
+.urlbarView-row[selected]>.urlbarView-row-inner {
+  background: var(--toolbar-field-focus-background-color) !important;
+}
+
+/* URL icons alignment */
+.urlbar-icon,
+#urlbar-go-button {
+  margin: auto;
+}
+
+.urlbar-page-action {
+  padding: 0 inherit !important;
+}
+
+/* URL bar responsive margin */
+#nav-bar {
+  margin: calc((var(--urlbar-min-height) * -1) - 12px) calc(100vw - var(--uc-urlbar-min-width)) 0 0 !important;
+}
+
+#titlebar {
+  margin-inline-start: var(--uc-urlbar-min-width) !important;
+}
+
+/* On focus, expand nav-bar */
+#navigator-toolbox:focus-within #nav-bar {
+  margin: calc((var(--urlbar-min-height) * -1) - 12px) calc(100vw - var(--uc-urlbar-max-width)) 0 0 !important;
+}
+
+#navigator-toolbox:focus-within #titlebar {
+  margin-inline-start: var(--uc-urlbar-max-width) !important;
+}
+
+/* Layout flexing for URL bar and titlebar */
+#navigator-toolbox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#nav-bar {
+  order: var(--uc-urlbar-position);
+  width: var(--uc-urlbar-min-width);
+}
+
+#nav-bar #urlbar-container {
+  min-width: 0px !important;
+  width: 100vw !important;
+}
+
+#TabsToolbar {
+  width: calc(100vw - var(--uc-urlbar-min-width) - 1px);
+}
+
+#navigator-toolbox:focus-within #nav-bar,
+#navigator-toolbox:focus-within #titlebar {
+  width: 100vw !important;
+  position: absolute !important;
+  top: 0;
+  left: -50px;
+  margin: 0 !important;
+  z-index: 9999;
+}
